@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Graphic Designer — Portfolio</title>
+  <style>
+    :root{
+      --bg:#ffffff;--ink:#0a0a0a;--muted:#6b7280;--accent:#0ea5e9;--accent-2:#111827;--card:#f3f4f6;--ring:#e5e7eb;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{--bg:#0b0b0b;--ink:#f8fafc;--muted:#cbd5e1;--accent:#38bdf8;--accent-2:#111827;--card:#111214;--ring:#1f2937;}
+      body{background:var(--bg); color:var(--ink)}
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--ink); background:var(--bg);}
+
+    /* Top bar */
+    .topbar{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in lab, var(--bg) 85%, transparent); border-bottom:1px solid var(--ring);} 
+    .nav{max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:1rem; padding:0.8rem 1rem;} 
+    .brand{font-weight:700; letter-spacing:0.3px;}
+    .spacer{flex:1}
+    .nav a{color:var(--ink); text-decoration:none; padding:0.4rem 0.6rem; border-radius:10px; font-weight:600; font-size:0.95rem; opacity:.9}
+    .nav a:hover{background:var(--card)}
+    .cta{border:1px solid var(--ring); padding:0.5rem 0.9rem; border-radius:999px; font-weight:700}
+
+    /* Section framing (Apple-like storytelling) */
+    section.panel{min-height:100vh; display:grid; grid-template-columns: 1.1fr 0.9fr; align-items:center; gap:3rem; max-width:1200px; margin:0 auto; padding:6rem 1.25rem;}
+    .panel--reverse{grid-template-columns:0.9fr 1.1fr}
+    .panel img, .mock{width:100%; height:auto; border-radius:24px; box-shadow:0 30px 80px rgba(0,0,0,.15)}
+    .mock{background:linear-gradient(135deg, #111827, #374151); aspect-ratio: 4/3; display:grid; place-items:center; color:#e5e7eb; font-weight:700; font-size:1.2rem;}
+    .eyebrow{color:var(--accent); font-weight:800; letter-spacing:.12em; text-transform:uppercase; font-size:.8rem;}
+    h1.big{font-size:clamp(2.8rem, 7vw, 5rem); line-height:1.05; margin:.3rem 0 1rem; letter-spacing:-.02em}
+    p.lead{font-size:1.1rem; color:var(--muted); max-width:60ch}
+    .points{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.25rem}
+    .chip{border:1px solid var(--ring); padding:.5rem .75rem; border-radius:999px; font-weight:600; font-size:.9rem;}
+
+    /* Hero */
+    .hero{display:grid; place-items:center; text-align:center; min-height:100vh; padding:7rem 1.25rem; background: radial-gradient(1200px 700px at 50% -10%, color-mix(in lab, var(--accent) 22%, transparent), transparent 60%),
+              radial-gradient(900px 500px at 120% 20%, color-mix(in lab, var(--accent) 15%, transparent), transparent 60%);} 
+    .hero h1{font-size:clamp(3rem, 8vw, 6rem); line-height:1.02; letter-spacing:-.02em; margin:0 0 1rem}
+    .hero p{color:var(--muted); font-size:1.2rem; max-width:70ch; margin:0 auto 2rem}
+    .hero .tags{display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem}
+
+    /* Full-bleed breaks */
+    .break{padding:2.4rem 1.25rem; border-block:1px solid var(--ring); background:color-mix(in lab, var(--card) 70%, transparent)}
+    .break .wrap{max-width:1200px; margin:0 auto; display:flex; gap:1rem; align-items:center; justify-content:space-between; flex-wrap:wrap}
+
+    /* Gallery stripe */
+    .stripe{display:grid; grid-auto-flow:column; gap:1rem; overflow:auto; padding:1rem 0.25rem}
+    .tile{min-width:280px; background:var(--card); border:1px solid var(--ring); border-radius:18px; aspect-ratio:4/5; display:grid; place-items:center; font-weight:700}
+
+    /* Contact */
+    .contact{min-height:70vh; display:grid; place-items:center; text-align:center; padding:6rem 1.25rem}
+    .contact .cta{font-size:1.05rem}
+
+    /* Footer */
+    footer{border-top:1px solid var(--ring); color:var(--muted); padding:2rem 1.25rem; text-align:center}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      section.panel{grid-template-columns:1fr; gap:1.8rem; min-height:auto; padding:5rem 1rem}
+      .panel--reverse{grid-template-columns:1fr}
+      .hero{padding:6rem 1rem}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <div class="brand">YourName®</div>
+      <a href="#flyers">Flyers</a>
+      <a href="#business">Business Cards</a>
+      <a href="#posters">Posters</a>
+      <a href="#social">Social</a>
+      <a href="#menu">Menus</a>
+      <a href="#branding">Branding</a>
+      <a href="#packaging">Packaging</a>
+      <a href="#brochures">Brochures</a>
+      <a href="#billboards">OOH</a>
+      <span class="spacer"></span>
+      <a class="cta" href="#contact">Hire me</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div>
+      <h1>Design that speaks like a product launch.</h1>
+      <p>Every project treated like a flagship release. Clear story. Bold visuals. Precision craft. From quick-turn flyers to identity systems, I build work that feels premium and performs.</p>
+      <div class="tags">
+        <span class="chip">Flyers</span>
+        <span class="chip">Business Cards</span>
+        <span class="chip">Posters</span>
+        <span class="chip">Social Media</span>
+        <span class="chip">Menu Books</span>
+        <span class="chip">Branding</span>
+        <span class="chip">Packaging</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="break"><div class="wrap"><strong>Featured work</strong><div class="stripe">
+    <div class="tile">Event Flyer</div>
+    <div class="tile">Cafe Menu</div>
+    <div class="tile">Tech Poster</div>
+    <div class="tile">Restaurant Card</div>
+    <div class="tile">Brand System</div>
+  </div></div></div>
+
+  <!-- FLYERS -->
+  <section class="panel" id="flyers">
+    <div>
+      <div class="eyebrow">Flyers</div>
+      <h1 class="big">Make the message impossible to miss.</h1>
+      <p class="lead">High-contrast layout, hierarchy you can feel, and typography that punches. Designed for conversion—street, inbox, or story.</p>
+      <div class="points">
+        <span class="chip">Print + Digital</span>
+        <span class="chip">Event / Launch</span>
+        <span class="chip">Fast turnarounds</span>
+      </div>
+    </div>
+    <picture>
+      <img src="https://via.placeholder.com/1200x900.png?text=Flyer+Sample" alt="Flyer sample" />
+    </picture>
+  </section>
+
+  <!-- BUSINESS CARDS -->
+  <section class="panel panel--reverse" id="business">
+    <picture>
+      <img src="https://via.placeholder.com/1200x900.png?text=Business+Card+Sample" alt="Business card sample" />
+    </picture>
+    <div>
+      <div class="eyebrow">Business Cards</div>
+      <h1 class="big">Small surface. Big presence.</h1>
+      <p class="lead">Tactile stocks, crisp grids, and considered whitespace—cards that feel premium and get kept.</p>
+      <div class="points">
+        <span class="chip">Matte / Foil</span>
+        <span class="chip">Rounded / Square</span>
+        <span class="chip">QR ready</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSTERS -->
+  <section class="panel" id="posters">
+    <div>
+      <div class="eyebrow">Posters</div>
+      <h1 class="big">Scale the story. Own the wall.</h1>
+      <p class="lead">Expressive composition and dramatic type systems for campaigns, galleries, and environments. Designed to stop people in their tracks.</p>
+      <div class="points">
+        <span class="chip">A2–A0</span>
+        <span class="chip">High DPI</span>
+        <span class="chip">Outdoor durable</span>
+      </div>
+    </div>
+    <picture>
+      <img src="https://via.placeholder.com/1200x1600.png?text=Poster+Sample" alt="Poster sample" />
+    </picture>
+  </section>
+
+  <!-- SOCIAL -->
+  <section class="panel panel--reverse" id="social">
+    <picture>
+      <img src="https://via.placeholder.com/1200x1200.png?text=Social+Media+Post+Sample" alt="Social media post sample" />
+    </picture>
+    <div>
+      <div class="eyebrow">Social Media</div>
+      <h1 class="big">Native to the feed. Built for performance.</h1>
+      <p class="lead">Platform-specific ratios, motion-ready frames, and modular templates to scale content without losing quality.</p>
+      <div class="points">
+        <span class="chip">1:1 • 4:5 • 9:16</span>
+        <span class="chip">Template systems</span>
+        <span class="chip">Ad-ready</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENUS -->
+  <section class="panel" id="menu">
+    <div>
+      <div class="eyebrow">Menu Books</div>
+      <h1 class="big">Tastefully organized. Readably delicious.</h1>
+      <p class="lead">Menu systems that guide choice and spotlight margin makers. Print, digital, and table-friendly formats.</p>
+      <div class="points">
+        <span class="chip">Brand-cohesive</span>
+        <span class="chip">Multi-language</span>
+        <span class="chip">Print ready</span>
+      </div>
+    </div>
+    <picture>
+      <img src="https://via.placeholder.com/1200x900.png?text=Menu+Book+Sample" alt="Menu sample" />
+    </picture>
+  </section>
+
+  <!-- BRANDING -->
+  <section class="panel panel--reverse" id="branding">
+    <picture>
+      <img src="https://via.placeholder.com/1200x900.png?text=Brand+Identity+Sample" alt="Brand identity sample" />
+    </picture>
+    <div>
+      <div class="eyebrow">Brand Identity</div>
+      <h1 class="big">Simple marks. Strong systems.</h1>
+      <p class="lead">Logos, palettes, and typography rules that scale from avatars to signage with clarity and character.</p>
+      <div class="points">
+        <span class="chip">Logo suites</span>
+        <span class="chip">Guidelines PDF</span>
+        <span class="chip">Asset kits</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGING -->
+  <section class="panel" id="packaging">
+    <div>
+      <div class="eyebrow">Packaging</div>
+      <h1 class="big">Shelf impact engineered.</h1>
+      <p class="lead">Die-lines, print specs, and tactile finishes that turn unboxing into a brand moment.</p>
+      <div class="points">
+        <span class="chip">Mockups & dielines</span>
+        <span class="chip">CMYK / Spot</span>
+        <span class="chip">Sustainability-first</span>
+      </div>
+    </div>
+    <picture>
+      <img src="https://via.placeholder.com/1200x900.png?text=Packaging+Sample" alt="Packaging sample" />
+    </picture>
+  </section>
+
+  <!-- BROCHURES -->
+  <section class="panel panel--reverse" id="brochures">
+    <picture>
+      <img src="https://via.placeholder.com/1200x900.png?text=Brochure+Sample" alt="Brochure sample" />
+    </picture>
+    <div>
+      <div class="eyebrow">Brochures</div>
+      <h1 class="big">Information, elegantly paced.</h1>
+      <p class="lead">Grids that guide, imagery that breathes, copy that lands. From tri-folds to lookbooks.</p>
+      <div class="points">
+        <span class="chip">Tri‑fold / Bi‑fold</span>
+        <span class="chip">Lookbooks</span>
+        <span class="chip">Press-ready PDFs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BILLBOARDS / OOH -->
+  <section class="panel" id="billboards">
+    <div>
+      <div class="eyebrow">Billboards & OOH</div>
+      <h1 class="big">Seconds to read. Miles to remember.</h1>
+      <p class="lead">Bold typography, concise messaging, and layout tuned for distance and speed.</p>
+      <div class="points">
+        <span class="chip">High-contrast</span>
+        <span class="chip">Large format</span>
+        <span class="chip">Vendor coordination</span>
+      </div>
+    </div>
+    <picture>
+      <img src="https://via.placeholder.com/1400x900.png?text=Billboard+Sample" alt="Billboard sample" />
+    </picture>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div>
+      <div class="eyebrow">Collaborate</div>
+      <h1 class="big">Let’s launch your next visual.</h1>
+      <p class="lead">Send your brief, moodboard, or even a napkin sketch. I’ll respond with a clear plan, timeline, and flat-rate quote.</p>
+      <p style="margin-top:1.2rem"><a class="cta" href="mailto:designer@example.com">designer@example.com</a></p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 YourName — Graphic Designer. All rights reserved.
+  </footer>
+
+  <script>
+    // Smooth active link highlighting without animations
+    const links = document.querySelectorAll('.nav a[href^="#"]');
+    const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+    const onScroll = () => {
+      const y = window.scrollY + 100; // offset for sticky bar
+      let current = sections[0]?.id;
+      sections.forEach(sec => { if (sec.offsetTop <= y) current = sec.id; });
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    };
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  </script>
+</body>
+</html>

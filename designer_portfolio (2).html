@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Graphic Designer — Portfolio</title>
+  <style>
+    :root{
+      --bg:#ffffff;--ink:#0a0a0a;--muted:#6b7280;--accent:#0ea5e9;--card:#f3f4f6;--ring:#e5e7eb;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{--bg:#0b0b0b;--ink:#f8fafc;--muted:#cbd5e1;--accent:#38bdf8;--card:#111214;--ring:#1f2937;}
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"Poppins", system-ui, sans-serif; background:var(--bg); color:var(--ink); line-height:1.6}
+
+    /* Navbar */
+    .topbar{position:fixed;top:0;left:0;width:100%;z-index:100;backdrop-filter:saturate(180%) blur(12px);background:color-mix(in srgb, var(--bg) 80%, transparent);border-bottom:1px solid var(--ring);}
+    .nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem}
+    .brand{font-weight:700;font-size:1.2rem;letter-spacing:-.02em}
+    .nav-links{display:flex;gap:1.5rem;align-items:center}
+    .nav-links a{color:var(--ink);text-decoration:none;font-weight:600;transition:color .3s}
+    .nav-links a:hover{color:var(--accent)}
+    .nav .cta{padding:0.5rem 1rem;border:1px solid var(--ring);border-radius:999px;font-weight:700}
+
+    /* Mobile nav toggle */
+    .menu-toggle{display:none;cursor:pointer;flex-direction:column;gap:5px}
+    .menu-toggle span{width:25px;height:3px;background:var(--ink);border-radius:2px}
+    .mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:2rem;font-size:1.5rem}
+    .mobile-menu a{text-decoration:none;color:var(--ink);font-weight:700}
+
+    /* Hero */
+    .hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:6rem 1rem;background:radial-gradient(1000px 600px at 50% -10%, color-mix(in srgb, var(--accent) 15%, transparent), transparent)}
+    .hero h1{font-size:clamp(2.8rem, 8vw, 5rem);line-height:1.1;margin-bottom:1rem;letter-spacing:-.02em}
+    .hero p{max-width:65ch;margin:0 auto 2rem;color:var(--muted);font-size:1.15rem}
+
+    /* Panels */
+    section.panel{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:3rem;max-width:1200px;margin:0 auto;padding:6rem 1.25rem}
+    .panel--reverse{grid-template-columns:1fr 1fr;direction:rtl;text-align:right}
+    .panel img{width:100%;height:auto;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,0.15)}
+    .panel div{direction:ltr}
+    .eyebrow{color:var(--accent);font-size:.85rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
+    .big{font-size:clamp(2rem, 6vw, 3.5rem);margin-bottom:1rem;letter-spacing:-.01em}
+    .lead{font-size:1.05rem;color:var(--muted);margin-bottom:1.5rem;max-width:55ch}
+
+    /* Contact */
+    .contact{min-height:60vh;display:grid;place-items:center;text-align:center;padding:6rem 1.25rem;background:linear-gradient(to bottom,var(--card),transparent)}
+    .contact h1{font-size:clamp(2rem,6vw,3rem);margin-bottom:1rem}
+    .contact p{color:var(--muted);margin-bottom:2rem}
+
+    /* Footer */
+    footer{border-top:1px solid var(--ring);padding:2rem 1.25rem;text-align:center;color:var(--muted)}
+
+    /* Responsive */
+    @media(max-width:960px){
+      .nav-links{display:none}
+      .menu-toggle{display:flex}
+      section.panel{grid-template-columns:1fr;gap:2rem;min-height:auto;padding:4rem 1rem;text-align:center}
+      .panel--reverse{text-align:center;direction:ltr}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <div class="brand">YourName®</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#contact">Hire me</a>
+      </div>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact">Hire me</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div>
+      <h1>Design that feels like a product launch.</h1>
+      <p>I create work that speaks clearly and looks premium — treating each project with the same storytelling finesse you see in world-class product launches.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="panel" id="about">
+    <div>
+      <div class="eyebrow">About Me</div>
+      <h1 class="big">A storyteller with visuals.</h1>
+      <p class="lead">I transform business goals into compelling visuals. Whether it’s flyers, social campaigns, or complete brand systems, my approach combines clarity with craft, delivering designs that resonate and perform.</p>
+    </div>
+    <img src="https://via.placeholder.com/1000x700.png?text=About+Me+Visual" alt="About visual" />
+  </section>
+
+  <!-- SECTIONS -->
+  <section class="panel panel--reverse">
+    <img src="https://via.placeholder.com/1200x900.png?text=Flyer+Sample" alt="Flyer sample" />
+    <div>
+      <div class="eyebrow">Flyers</div>
+      <h1 class="big">Grab attention instantly.</h1>
+      <p class="lead">Every flyer is designed to capture the viewer’s eye in seconds, with layouts and typography that drive them to act.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div>
+      <div class="eyebrow">Business Cards</div>
+      <h1 class="big">Leave a lasting impression.</h1>
+      <p class="lead">Cards with modern layouts and tactile finishes that make people remember your brand long after the first handshake.</p>
+    </div>
+    <img src="https://via.placeholder.com/1200x900.png?text=Business+Card+Sample" alt="Business card sample" />
+  </section>
+
+  <section class="panel panel--reverse">
+    <img src="https://via.placeholder.com/1200x900.png?text=Poster+Sample" alt="Poster sample" />
+    <div>
+      <div class="eyebrow">Posters</div>
+      <h1 class="big">Bold visuals for bold messages.</h1>
+      <p class="lead">Posters that dominate spaces, with large typography, sharp colors, and layouts that amplify your message in seconds.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div>
+      <div class="eyebrow">Social Media</div>
+      <h1 class="big">Content that clicks.</h1>
+      <p class="lead">Social posts that don’t just look good — they perform. Designs optimized for engagement and brand consistency.</p>
+    </div>
+    <img src="https://via.placeholder.com/1200x900.png?text=Social+Media+Sample" alt="Social media sample" />
+  </section>
+
+  <section class="panel panel--reverse">
+    <img src="https://via.placeholder.com/1200x900.png?text=Menu+Book+Sample" alt="Menu book sample" />
+    <div>
+      <div class="eyebrow">Menu Books</div>
+      <h1 class="big">Menus that sell before the order.</h1>
+      <p class="lead">Crisp layouts and appetizing visuals that make choosing dishes an enjoyable, brand-driven experience.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div>
+      <div class="eyebrow">Branding</div>
+      <h1 class="big">Your identity, elevated.</h1>
+      <p class="lead">From logos to guidelines, I build cohesive brand identities that are memorable, scalable, and versatile across platforms.</p>
+    </div>
+    <img src="https://via.placeholder.com/1200x900.png?text=Branding+Sample" alt="Branding sample" />
+  </section>
+
+  <section class="panel panel--reverse">
+    <img src="https://via.placeholder.com/1200x900.png?text=Packaging+Sample" alt="Packaging sample" />
+    <div>
+      <div class="eyebrow">Packaging</div>
+      <h1 class="big">Design that gets picked.</h1>
+      <p class="lead">Eye-catching packaging that stands out on shelves and communicates your brand’s promise instantly.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div>
+      <div class="eyebrow">Brochures</div>
+      <h1 class="big">Stories you can hold.</h1>
+      <p class="lead">Multi-page brochures designed with clarity and flow, balancing visuals and information for maximum impact.</p>
+    </div>
+    <img src="https://via.placeholder.com/1200x900.png?text=Brochure+Sample" alt="Brochure sample" />
+  </section>
+
+  <section class="panel panel--reverse">
+    <img src="https://via.placeholder.com/1200x900.png?text=Billboard+Sample" alt="Billboard sample" />
+    <div>
+      <div class="eyebrow">Billboards / OOH</div>
+      <h1 class="big">Impact on a massive scale.</h1>
+      <p class="lead">Outdoor advertising designs crafted for speed, clarity, and impact, making sure your brand dominates the skyline.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div>
+      <div class="eyebrow">Contact</div>
+      <h1>Let’s build something bold.</h1>
+      <p>Send me your ideas, sketches, or goals — I’ll return a clear plan, a polished design, and visuals you’ll be proud to showcase.</p>
+      <a class="cta" href="mailto:designer@example.com">designer@example.com</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 YourName — Graphic Designer. All rights reserved.
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    });
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {menu.style.display = 'none';});
+    });
+  </script>
+</body>
+</html>
